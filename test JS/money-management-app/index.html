@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="km">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1769f5">
+  <meta name="description" content="Monee — personal money management, budgets, savings and trip planning.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Monee">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192-v2.png">
+  <link rel="icon" type="image/png" href="./assets/icons/icon-192-v2.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Monee — Money Management</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="./" aria-label="Monee home">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2h-5a4 4 0 0 0 0 8h5v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Zm13 4a2 2 0 1 0 0 4h5v-4h-5Z"/><circle cx="16" cy="13" r="1" fill="#1769f5"/></svg></span>
+        <span class="brand-copy"><strong>Monee</strong><small data-i18n="tagline">គ្រប់គ្រងលុយឱ្យមានតុល្យភាព</small></span>
+      </a>
+      <div class="sidebar-label" data-i18n="overview">ទិដ្ឋភាពទូទៅ</div>
+      <nav class="sidebar-nav">
+        <button class="nav-link active" data-view="dashboard"><span class="nav-icon" data-icon="dashboard"></span><span data-nav-label="dashboard">ផ្ទាំងសង្ខេប</span></button>
+        <button class="nav-link" data-view="transactions"><span class="nav-icon" data-icon="arrows"></span><span data-nav-label="transactions">ប្រតិបត្តិការ</span></button>
+        <button class="nav-link" data-view="budgets"><span class="nav-icon" data-icon="chart"></span><span data-nav-label="budgets">ថវិកា</span></button>
+        <button class="nav-link" data-view="savings"><span class="nav-icon" data-icon="piggy"></span><span data-nav-label="savings">ការសន្សំ</span></button>
+        <button class="nav-link" data-view="trips"><span class="nav-icon" data-icon="plane"></span><span data-nav-label="trips">ផែនការដំណើរ</span></button>
+        <button class="nav-link" data-view="bills"><span class="nav-icon" data-icon="receipt"></span><span data-nav-label="bills">វិក្កយបត្រ</span></button>
+      </nav>
+      <div class="sidebar-label sidebar-label-lower" data-i18n="manage">គ្រប់គ្រង</div>
+      <nav class="sidebar-nav">
+        <button class="nav-link" data-view="reports"><span class="nav-icon" data-icon="chart"></span><span data-nav-label="reports">របាយការណ៍</span></button>
+        <button class="nav-link" data-view="settings"><span class="nav-icon" data-icon="settings"></span><span data-nav-label="settings">ការកំណត់</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-note"><span class="local-dot"></span><span data-i18n="localStorage">ការផ្ទុកក្នុងឧបករណ៍</span><small data-i18n="onThisDevice">នៅលើឧបករណ៍នេះ</small></div>
+        <div class="sidebar-version">Monee · v1.5</div>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Open navigation"><span data-icon="menu"></span></button>
+          <div class="breadcrumb"><span>Monee</span><span class="crumb-separator">/</span><strong id="page-breadcrumb">ផ្ទាំងសង្ខេប</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <span class="connection-pill" id="connection-status"><span class="connection-dot"></span><span id="connection-text">Online</span></span>
+          <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><span data-icon="moon"></span></button>
+          <button class="icon-btn" id="privacy-toggle" aria-label="Hide amounts" title="Hide amounts"><span data-icon="eye"></span></button>
+          <button class="icon-btn" id="language-toggle" aria-label="Switch language" title="Switch language"><span data-icon="globe"></span><span class="language-short">KM</span></button>
+          <button class="install-btn" id="install-button"><span data-icon="download"></span><span data-i18n="installApp">ដំឡើងកម្មវិធី</span></button>
+          <div class="avatar" id="user-avatar">M</div>
+        </div>
+      </header>
+
+      <div class="update-banner" id="update-banner" hidden>
+        <span data-i18n="updateReady">មានកំណែថ្មីរួចរាល់។</span>
+        <button class="btn btn-small btn-primary" id="update-button" data-i18n="update">ធ្វើបច្ចុប្បន្នភាព</button>
+      </div>
+
+      <main class="content" id="content" tabindex="-1">
+        <div class="loading-state">កំពុងបើក Monee…</div>
+      </main>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-link active" data-view="dashboard"><span data-icon="dashboard"></span><small data-nav-label="dashboard">ទំព័រដើម</small></button>
+        <button class="mobile-nav-link" data-view="transactions"><span data-icon="arrows"></span><small data-nav-label="transactions">ប្រតិបត្តិការ</small></button>
+        <button class="mobile-nav-link" data-view="budgets"><span data-icon="chart"></span><small data-nav-label="budgets">ថវិកា</small></button>
+        <button class="mobile-nav-link" data-view="savings"><span data-icon="piggy"></span><small data-nav-label="savings">សន្សំ</small></button>
+        <button class="mobile-nav-link" data-view="settings"><span data-icon="settings"></span><small data-nav-label="settings">កំណត់</small></button>
+      </nav>
+    </div>
+  </div>
+
+  <div class="modal-root" id="modal-root"></div>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

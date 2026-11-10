@@ -1,0 +1,10 @@
+{
+  "name": "monee-personal-money-management",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "description": "Khmer-first personal money management PWA using vanilla JavaScript and LocalStorage",
+  "scripts": {
+    "test": "node --test"
+  }
+}
