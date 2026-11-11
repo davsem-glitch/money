@@ -346,6 +346,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .mobile-nav-link { border: 0; background: transparent; color: var(--muted); display: grid; justify-items: center; gap: 4px; font-size: 9px; padding: 3px 0; }
   .mobile-nav-link .icon { width: 19px; height: 19px; }
   .mobile-nav-link.active { color: var(--primary); }
+  .icon-btn { width: 44px; height: 44px; }
+  .btn, .input { min-height: 44px; }
+  .mobile-nav-link { min-height: 48px; padding: 4px 2px; }
+  .mobile-nav-link .icon { width: 21px; height: 21px; }
+  .mobile-nav { padding-top: 6px; padding-bottom: calc(6px + env(safe-area-inset-bottom)); }
   .update-banner { margin: 10px 15px 0; }
   .toast-region { bottom: calc(78px + env(safe-area-inset-bottom)); right: 12px; width: calc(100vw - 24px); }
 }
@@ -644,7 +649,7 @@ body.modal-open { overflow: hidden; }
 @media (max-width: 650px) {
   .topbar { padding-left: 12px; padding-right: 12px; }
   .topbar-actions { gap: 6px; }
-  .icon-btn { width: 34px; height: 34px; }
+  .icon-btn { width: 44px; height: 44px; }
   .install-btn { min-height: 34px; padding: 8px 9px; }
   .install-btn .icon { width: 14px; height: 14px; }
   .content { padding-left: 14px; padding-right: 14px; }
@@ -656,6 +661,10 @@ body.modal-open { overflow: hidden; }
   .bill-card-actions { width: 100%; margin-left: 49px; }
   .modal-backdrop { align-items: end; padding: 8px; }
   .modal { width: 100%; max-height: min(88dvh, 760px); border-radius: 18px 18px 12px 12px; }
+}
+@media (max-width: 390px) {
+  .install-btn { width: 40px; min-width: 40px; justify-content: center; padding: 0; }
+  .install-btn [data-i18n="installApp"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }

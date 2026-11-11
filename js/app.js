@@ -84,6 +84,8 @@ function updateChrome() {
   const switchLanguageLabel = tr(lang() === 'km' ? 'switchToEnglish' : 'switchToKhmer');
   $('#language-toggle').setAttribute('aria-label', switchLanguageLabel);
   $('#language-toggle').setAttribute('title', switchLanguageLabel);
+  $('#install-button').setAttribute('aria-label', tr('installApp'));
+  $('#install-button').setAttribute('title', tr('installApp'));
   $('#user-avatar').textContent = (state.settings.userName || 'M').trim().slice(0, 1).toUpperCase();
   $('#connection-text').textContent = navigator.onLine ? tr('onlineStatus') : tr('offline');
   $('#connection-status').classList.toggle('offline', !navigator.onLine);
@@ -631,7 +633,7 @@ function render() {
   }
   content.append(page);
   $$('.nav-link, .mobile-nav-link').forEach(node => {
-    const active = node.dataset.view === currentView;
+    const active = node.dataset.view === currentView || (node.id === 'mobile-more' && ['trips', 'bills', 'reports', 'settings'].includes(currentView));
     node.classList.toggle('active', active);
     if (active) node.setAttribute('aria-current', 'page');
     else node.removeAttribute('aria-current');
@@ -1025,6 +1027,7 @@ function setupEvents() {
       } else if (!opened && overlay) overlay.remove();
     } else sidebar.classList.toggle('sidebar-open');
   });
+  $('#mobile-more').addEventListener('click', () => $('#mobile-menu').click());
   $('#install-button').addEventListener('click', async () => {
     if (deferredInstallPrompt) {
       const promptEvent = deferredInstallPrompt;
